@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.geloodev.rpgcharactersheet.models.User;
 import com.geloodev.rpgcharactersheet.models.Character;
@@ -31,8 +32,11 @@ public class UserControler {
     }
 
     @GetMapping
-    public List<User> getUsers() {
-        return userRepository.findAll();
+    public ModelAndView getUsers() {
+        List<User> users = userRepository.findAll();
+        ModelAndView mv = new ModelAndView("users");
+        mv.addObject("users", users);
+        return mv;
     }
 
     @GetMapping("/{id}")
