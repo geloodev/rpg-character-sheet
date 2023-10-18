@@ -1,11 +1,57 @@
 body {
-    font-family: 'Poppins';
+    font-family: 'Volkhov';
+    display: flex;
+    align-content: center;
 }
 
-.user-icon {
-    width: 40px;
+p {
+    margin: 0px;
+}
+
+h1, h3 {
+    font-family: 'IM Fell English';
+}
+
+h3 {
+    margin-top: 20px;
+    margin-bottom: 4px;
+    text-decoration: underline;
+}
+
+h4 {
+    margin: 4px 0px;
+    text-align: center;
+}
+
+#main {
     display: block;
+    width: 700px;
     margin: 0px auto;
+}
+
+#new-character-btn {
+    display: inline-block;
+    margin: 8px;
+    background-color: transparent;
+    padding: 4px;
+    color: black;
+    border: 1px solid black;
+    font-family: 'IM Fell English';
+    font-weight: bold;
+    font-size: medium;
+    box-shadow: 2px 2px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+#new-character-btn:hover {
+    background-color: #e0e0e0;
+}
+
+#new-character-btn:active {
+    box-shadow: 1px 1px;
+    transform: translateY(1px);
+    transform: translateX(1px);
 }
 
 .users-container, .characters-container {
@@ -14,8 +60,14 @@ body {
 }
 
 .user-box, .character-box {
-    border: 1px solid grey;
-    border-radius: 4px;
-    margin: 10px;
-    padding: 10px;
+    flex: 1;
+    border: 1px solid black;
+    margin: 8px;
+    padding: 8px;
+}
+
+.user-icon {
+    width: 40px;
+    display: block;
+    margin: 5px auto;
 }
