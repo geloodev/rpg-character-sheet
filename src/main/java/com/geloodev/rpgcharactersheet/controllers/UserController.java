@@ -14,9 +14,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.geloodev.rpgcharactersheet.models.Character;
 import com.geloodev.rpgcharactersheet.models.User;
-import com.geloodev.rpgcharactersheet.services.CharacterService;
 import com.geloodev.rpgcharactersheet.services.UserService;
 
 @Controller
@@ -26,12 +24,8 @@ public class UserController {
     @Autowired
     private final UserService userService;
 
-    @Autowired
-    private final CharacterService characterService;
-
-    public UserController(UserService userService, CharacterService characterService) {
+    public UserController(UserService userService) {
         this.userService = userService;
-        this.characterService = characterService;
     }
 
     @GetMapping
@@ -41,16 +35,11 @@ public class UserController {
         return "users";
     }
 
-    @GetMapping("/{id}")
-    public User getUserById(@PathVariable("id") String id) {
-        return userService.getUserById(id);
-    }
-
-    @GetMapping("/{id}/characters")
-    public String getCharactersByUserId(@PathVariable("id") String id, Model model) {
-        Collection<Character> characters = characterService.getCharactersByUserId(id);
-        model.addAttribute("characters", characters);
-        return "user-characters";
+    @GetMapping("/{username}")
+    public String getUserByUsername(@PathVariable("username") String username, Model model) {
+        User user = userService.getUserByUsername(username);
+        model.addAttribute("user", user);
+        return "user";
     }
 
     @PostMapping
