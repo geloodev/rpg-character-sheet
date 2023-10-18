@@ -4,8 +4,8 @@ import lombok.Data;
 
 @Data
 public class CharacterAbilities {
-    private int agility;
-    private int presence;
-    private int strength;
-    private int toughness;
+    private String agility;
+    private String presence;
+    private String strength;
+    private String toughness;
 }
