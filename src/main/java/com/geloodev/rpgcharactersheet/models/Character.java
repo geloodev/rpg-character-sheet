@@ -1,8 +1,7 @@
 package com.geloodev.rpgcharactersheet.models;
 
-import java.util.List;
+import java.util.Collection;
 
-import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
@@ -23,13 +22,17 @@ public class Character {
     private CharacterClass characterClass;
     
     private CharacterAbilities abilities;
-    private List<CharacterEquipment> equipments;
-    private ObjectId userId;
+    private Collection<CharacterEquipment> equipments;
+    private String username;
 
-    public Character(String name, String description, CharacterAbilities abilities, ObjectId userId) {
+    public Character(String name, String description, CharacterClass characterClass, 
+                     CharacterAbilities abilities, Collection<CharacterEquipment> equipments, 
+                     String username) {
         this.name = name;
         this.description = description;
+        this.characterClass= characterClass;
         this.abilities = abilities;
-        this.userId = userId;
+        this.equipments = equipments;
+        this.username = username;
     }
 }
