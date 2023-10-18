@@ -3,7 +3,6 @@ package com.geloodev.rpgcharactersheet.services;
 import java.util.Collection;
 import java.util.Optional;
 
-import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,9 +19,8 @@ public class CharacterServiceImpl implements CharacterService {
         this.characterRepository = characterRepository;
     }
 
-    public Collection<Character> getCharactersByUserId(String userId) {
-        ObjectId objectId = new ObjectId(userId);
-        return characterRepository.findByUserId(objectId);
+    public Collection<Character> getCharactersByUsername(String username) {
+        return characterRepository.findByUsername(username);
     }
 
     public Collection<Character> getCharacters() {
@@ -42,7 +40,7 @@ public class CharacterServiceImpl implements CharacterService {
             updatedCharacter.setCharacterClass(character.getCharacterClass());
             updatedCharacter.setAbilities(character.getAbilities());
             updatedCharacter.setEquipments(character.getEquipments());
-            updatedCharacter.setUserId(character.getUserId());
+            updatedCharacter.setUsername(character.getUsername());
             return characterRepository.save(updatedCharacter);
         }
         return null;

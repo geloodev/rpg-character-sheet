@@ -6,7 +6,7 @@ import com.geloodev.rpgcharactersheet.models.Character;
 
 public interface CharacterService {
     Collection<Character> getCharacters();
-    Collection<Character> getCharactersByUserId(String userId);
+    Collection<Character> getCharactersByUsername(String username);
     Character getCharacterById(String id);
     Character updateCharacter(String id, Character character);
     void createCharacter(Character character);
