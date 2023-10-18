@@ -6,23 +6,34 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" th:href="@{css/style.css}">
+        <link rel="stylesheet" type="text/css" href="/css/style.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Poppins:ital,wght@0,400;0,700;1,400;1,700&family=Volkhov:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
         <title>Your Characters</title>
     </head>
     <body>
-        <div class="main">
-            <h1>Characters</h1>
+        <div id="main">
+            <h1>your characters</h1>
+            <a id="new-character-btn" th:href="@{'/' + ${username} + '/characters/create'}">New Character</a>
             <div class="characters-container">
                 <div class="character-box" th:each="character : ${characters}">
-                    <span th:text="${character.name}"></span>
-                    <br>
-                    <span th:text="${character.description}"></span>
-                    <br>
-                    <span th:text="${character.abilities}"></span>
-                    <br>
+                    <h4><span th:text="${character.name}"></span></h4>
+                    <h4><span th:text="${character.characterClass.name}"></span></h4> 
+
+                    <h3>description</h3>
+                    <p><span th:text="${character.description}"></span></p>
+
+                    <h3>attributes</h3>
+                    <p>agility: <span th:text="${character.abilities.agility}"></span></p>
+                    <p>presence: <span th:text="${character.abilities.presence}"></span></p>
+                    <p>strength: <span th:text="${character.abilities.strength}"></span></p>
+                    <p>toughness: <span th:text="${character.abilities.toughness}"></span></p>
+
+                    <h3>equipments</h3>
+                    <p th:each="equipment : ${character.equipments}">
+                        <span th:text="${equipment.name}"></span>
+                    </p>
                 </div>
             </div>
         </div>
