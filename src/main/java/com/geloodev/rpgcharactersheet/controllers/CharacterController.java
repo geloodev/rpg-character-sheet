@@ -28,7 +28,7 @@ public class CharacterController {
         Collection<Character> characters = characterService.getCharactersByUsername(username);
         model.addAttribute("characters", characters);
         model.addAttribute("username", username);
-        return "characters";
+        return "user-characters";
     }
 
     @GetMapping("/create")
