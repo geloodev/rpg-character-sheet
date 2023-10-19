@@ -14,9 +14,38 @@
     </head>
     <body>
         <div id="main">
-            <h1>create a new character</h1>
-            <div class="user-box">
-                
+            <h1>create </h1>
+            <div class="form-box">
+                <form class="character-form" action="#" th:action="@{'/' + ${username} + '/characters/create'}" th:object="${character}" method="post">
+                    <span>name</span>
+                    <input class="form-input" type="text" th:field="*{name}">
+                    <span>description</span>
+                    <input class="form-input" type="text" th:field="*{description}">
+                    <span>class</span>
+                    <input class="form-input" type="text" th:field="*{characterClass.name}">
+
+                    <h3>abilities</h3>
+                    <div class="abilities-container">
+                        <div class="ability-container">
+                            <span>agility</span>
+                            <input class="form-input ability-input" type="text" value="1" th:field="*{abilities.agility}">
+                        </div>
+                        <div class="ability-container">
+                            <span>presence</span>
+                            <input class="form-input ability-input" type="text" value="1" th:field="*{abilities.presence}">
+                        </div>
+                        <div class="ability-container">
+                            <span>strength</span>
+                            <input class="form-input ability-input" type="text" value="1" th:field="*{abilities.strength}">
+                        </div>
+                        <div class="ability-container">
+                            <span>toughness</span>
+                            <input class="form-input ability-input" type="text" value="1" th:field="*{abilities.toughness}">
+                        </div>
+                    </div>
+
+                    <input id="create-character-form-btn" type="submit" value="Create">
+                </form>
             </div>
         </div>
     </body>
