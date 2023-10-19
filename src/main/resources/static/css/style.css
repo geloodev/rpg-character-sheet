@@ -2,6 +2,8 @@ body {
     font-family: 'Volkhov';
     display: flex;
     align-content: center;
+    align-items: center;
+    height: 90vh; 
 }
 
 p {
@@ -24,12 +26,15 @@ h4 {
 }
 
 #main {
-    display: block;
     width: 700px;
-    margin: 0px auto;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
-#new-character-btn {
+#new-character-btn, 
+#create-character-form-btn {
     display: inline-block;
     margin: 8px;
     background-color: transparent;
@@ -44,30 +49,72 @@ h4 {
     text-decoration: none;
 }
 
-#new-character-btn:hover {
+#new-character-btn:hover,
+#create-character-form-btn:hover {
     background-color: #e0e0e0;
 }
 
-#new-character-btn:active {
+#new-character-btn:active,
+#create-character-form-btn:active {
     box-shadow: 1px 1px;
     transform: translateY(1px);
     transform: translateX(1px);
 }
 
-.users-container, .characters-container {
+.users-container, 
+.characters-container {
     display: flex;
     justify-content: center;
+    width: 100%;
 }
 
-.user-box, .character-box {
+.user-box,
+.character-box {
     flex: 1;
     border: 1px solid black;
     margin: 8px;
     padding: 8px;
+    text-align: center;
 }
 
 .user-icon {
     width: 40px;
     display: block;
     margin: 5px auto;
+}
+
+.character-form {
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 10px;
+}
+
+.form-input {
+    border: none;
+    border-bottom: 1px solid black;
+    text-align: center;
+    margin-top: 2px;
+    margin-bottom: 12px;
+}
+
+.form-input:focus {
+    outline: none;
+    border-bottom: 2px solid black;
+}
+
+.abilities-container {
+    display: flex;
+}
+
+.ability-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0px 8px;
+}
+
+.ability-input {
+    width: 25px;
 }
