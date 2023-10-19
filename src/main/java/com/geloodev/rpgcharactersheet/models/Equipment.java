@@ -3,6 +3,6 @@ package com.geloodev.rpgcharactersheet.models;
 import lombok.Data;
 
 @Data
-public class CharacterEquipment {
+public class Equipment {
     private String name;
 }
