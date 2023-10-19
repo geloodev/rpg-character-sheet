@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.geloodev.rpgcharactersheet.models.Character;
@@ -32,7 +34,15 @@ public class CharacterController {
     }
 
     @GetMapping("/create")
-    public String createCharacterPage() {
+    public String createCharacterForm(@PathVariable("username") String username, Model model) {
+        model.addAttribute("character", new Character());
+        model.addAttribute("username", username);
         return "create-character";
+    }
+
+    @PostMapping("/create")
+    public String createCharacterFormSubmit(@PathVariable("username") String username, @ModelAttribute Character character) {
+        characterService.createCharacter(character);
+        return "redirect:/{username}/characters";
     }
 }
