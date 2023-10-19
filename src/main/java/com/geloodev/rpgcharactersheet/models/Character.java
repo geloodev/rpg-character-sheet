@@ -22,11 +22,11 @@ public class Character {
     private CharacterClass characterClass;
     
     private CharacterAbilities abilities;
-    private Collection<CharacterEquipment> equipments;
+    private Collection<Equipment> equipments;
     private String username;
 
     public Character(String name, String description, CharacterClass characterClass, 
-                     CharacterAbilities abilities, Collection<CharacterEquipment> equipments, 
+                     CharacterAbilities abilities, Collection<Equipment> equipments, 
                      String username) {
         this.name = name;
         this.description = description;
@@ -35,4 +35,6 @@ public class Character {
         this.equipments = equipments;
         this.username = username;
     }
+
+    public Character() {}
 }
