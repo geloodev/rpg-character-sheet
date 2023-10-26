@@ -40,6 +40,12 @@ public class CharacterController {
         return "create-character";
     }
 
+    @PostMapping("/delete/{id}")
+    public String deleteCharacter(@PathVariable("username") String username, @PathVariable("id") String id) {
+        characterService.deleteCharacter(id);
+        return "redirect:/{username}/characters";
+    }
+
     @PostMapping("/create")
     public String createCharacterFormSubmit(@PathVariable("username") String username, @ModelAttribute Character character) {
         characterService.createCharacter(character);
