@@ -1,6 +1,8 @@
 package com.geloodev.rpgcharactersheet.controllers;
 
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,7 +13,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.geloodev.rpgcharactersheet.models.character.Armor;
 import com.geloodev.rpgcharactersheet.models.character.Character;
+import com.geloodev.rpgcharactersheet.models.character.CharacterClass;
+import com.geloodev.rpgcharactersheet.models.character.Equipment;
+import com.geloodev.rpgcharactersheet.models.character.Omens;
+import com.geloodev.rpgcharactersheet.models.character.Weapons;
 import com.geloodev.rpgcharactersheet.services.CharacterService;
 
 @Controller
@@ -23,6 +30,31 @@ public class CharacterController {
 
     public CharacterController(CharacterService characterService) {
         this.characterService = characterService;
+    }
+
+    @ModelAttribute("allClasses")
+    public List<CharacterClass> populateClasses() {
+        return Arrays.asList(CharacterClass.values());
+    }
+
+    @ModelAttribute("allWeapons")
+    public List<Weapons> populateWeapons() {
+        return Arrays.asList(Weapons.values());
+    }
+
+    @ModelAttribute("allArmors")
+    public List<Armor> populateArmors() {
+        return Arrays.asList(Armor.values());
+    }
+
+    @ModelAttribute("allEquipments") 
+    public List<Equipment> populateEquipments() {
+        return Arrays.asList(Equipment.values());
+    }
+
+    @ModelAttribute("allOmens")
+    public List<Omens> populateOmens() {
+        return Arrays.asList(Omens.values());
     }
 
     @GetMapping
