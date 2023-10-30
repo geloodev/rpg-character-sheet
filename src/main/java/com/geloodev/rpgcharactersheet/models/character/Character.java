@@ -14,25 +14,31 @@ public class Character {
 
     @Id
     private String id;
-
     private String name;
     private String description;
-    
     @Field("class")
     private CharacterClass characterClass;
-    
-    private CharacterAbilities abilities;
+    private Abilities abilities;
+    private Collection<Weapons> weapons;
+    private Armor armor;
     private Collection<Equipment> equipments;
+    private Collection<Powers> powers;
+    private Collection<Omens> omens;
     private String username;
 
     public Character(String name, String description, CharacterClass characterClass, 
-                     CharacterAbilities abilities, Collection<Equipment> equipments, 
-                     String username) {
+                     Abilities abilities, Collection<Weapons> weapons, Armor armor, 
+                     Collection<Equipment> equipments, Collection<Powers> powers, 
+                     Collection<Omens> omens, String username) {
         this.name = name;
         this.description = description;
         this.characterClass= characterClass;
         this.abilities = abilities;
+        this.weapons = weapons;
+        this.armor = armor;
         this.equipments = equipments;
+        this.powers = powers;
+        this.omens = omens;
         this.username = username;
     }
 
