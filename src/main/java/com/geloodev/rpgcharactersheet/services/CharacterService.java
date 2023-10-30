@@ -2,7 +2,7 @@ package com.geloodev.rpgcharactersheet.services;
 
 import java.util.Collection;
 
-import com.geloodev.rpgcharactersheet.models.Character;
+import com.geloodev.rpgcharactersheet.models.character.Character;
 
 public interface CharacterService {
     Collection<Character> getCharacters();

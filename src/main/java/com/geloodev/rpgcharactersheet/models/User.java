@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import com.geloodev.rpgcharactersheet.models.character.Character;
+
 import lombok.Data;
 
 @Data

@@ -1,4 +1,4 @@
-package com.geloodev.rpgcharactersheet.models;
+package com.geloodev.rpgcharactersheet.models.character;
 
 import java.util.Collection;
 

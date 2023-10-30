@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.geloodev.rpgcharactersheet.models.Character;
+import com.geloodev.rpgcharactersheet.models.character.Character;
 import com.geloodev.rpgcharactersheet.services.CharacterService;
 
 @Controller
