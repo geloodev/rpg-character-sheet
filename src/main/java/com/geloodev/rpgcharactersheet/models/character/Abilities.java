@@ -3,7 +3,7 @@ package com.geloodev.rpgcharactersheet.models.character;
 import lombok.Data;
 
 @Data
-public class CharacterAbilities {
+public class Abilities {
     private String agility;
     private String presence;
     private String strength;
