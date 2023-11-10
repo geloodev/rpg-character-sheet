@@ -1,0 +1,17 @@
+spring:
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: rpg-character-sheet
+  
+  thymeleaf:
+    prefix: file:src/main/resources/templates/
+    cache: false
+  
+  resources:
+    static-locations: file:src/main/resources/static/
+    cache-period: 0
+
+  profiles:
+    active: dev
