@@ -18,25 +18,29 @@ public class Character {
     private String description;
     @Field("class")
     private CharacterClass characterClass;
+    private Integer hitPoints;
     private Abilities abilities;
     private Collection<Weapons> weapons;
     private Armor armor;
     private Collection<Equipment> equipments;
+    private Integer silver;
     private Collection<Powers> powers;
     private Collection<Omens> omens;
     private String username;
 
     public Character(String name, String description, CharacterClass characterClass, 
-                     Abilities abilities, Collection<Weapons> weapons, Armor armor, 
-                     Collection<Equipment> equipments, Collection<Powers> powers, 
-                     Collection<Omens> omens, String username) {
+                     Integer hitPoints, Abilities abilities, Collection<Weapons> weapons, 
+                     Armor armor, Collection<Equipment> equipments, Integer silver,
+                     Collection<Powers> powers, Collection<Omens> omens, String username) {
         this.name = name;
         this.description = description;
         this.characterClass= characterClass;
+        this.hitPoints = hitPoints;
         this.abilities = abilities;
         this.weapons = weapons;
         this.armor = armor;
         this.equipments = equipments;
+        this.silver = silver;
         this.powers = powers;
         this.omens = omens;
         this.username = username;

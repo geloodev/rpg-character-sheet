@@ -9,42 +9,55 @@
         <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=Poppins:ital,wght@0,400;0,700;1,400;1,700&family=Volkhov:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=JetBrains+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
         <title>new character</title>
     </head>
     <body>
         <div id="main">
-            <h1>create </h1>
-            <div class="form-box">
-                <form class="character-form" action="#" th:action="@{'/' + ${username} + '/characters/create'}" th:object="${character}" method="post">
-                    <span>name</span>
-                    <input class="form-input" type="text" th:field="*{name}">
-                    <span>description</span>
-                    <input class="form-input" type="text" th:field="*{description}">
-                    <span>class</span>
-                    <input class="form-input" type="text" th:field="*{characterClass.name}">
+            <div class="form-container">
+                <form class="character-form" action="#" th:action="@{'/' + ${username} + '/characters/create'}" 
+                    th:object="${character}" method="post">
+                    
+                    <button type="button">randomize</button>
+                    
+                    <div class="collumn">
+                        <label class="form-label">name</label>
+                        <input class="form-input" type="text" th:field="*{name}"/>
 
-                    <h3>abilities</h3>
-                    <div class="abilities-container">
-                        <div class="ability-container">
-                            <span>agility</span>
-                            <input class="form-input ability-input" type="text" value="1" th:field="*{abilities.agility}">
-                        </div>
-                        <div class="ability-container">
-                            <span>presence</span>
-                            <input class="form-input ability-input" type="text" value="1" th:field="*{abilities.presence}">
-                        </div>
-                        <div class="ability-container">
-                            <span>strength</span>
-                            <input class="form-input ability-input" type="text" value="1" th:field="*{abilities.strength}">
-                        </div>
-                        <div class="ability-container">
-                            <span>toughness</span>
-                            <input class="form-input ability-input" type="text" value="1" th:field="*{abilities.toughness}">
-                        </div>
+                        <label class="form-label">hp</label>
+                        <input class="form-input" type="text" th:field="*{hitPoints}"/>
+                    
+                        <label class="form-label">silver</label>
+                        <input class="form-input" type="text" th:field="*{silver}"/>
+
+                        <label class="form-label">omens</label>
+                        <input class="form-input" type="text" th:field="*{omens}"/>
+
+                        <label class="form-label">description</label>
+                        <textarea class="form-input" th:field="*{description}" rows="10"></textarea>
+
+                        <label class="form-label">class</label>
+                        <select th:field="*{characterClass}">
+                            <option th:each="class : ${allClasses}"
+                                th:value="${class}"
+                                th:text="${class.className}">
+                            </option>
+                        <select>
                     </div>
 
-                    <input id="create-character-form-btn" type="submit" value="Create">
+                    <div class="collumn">
+                        <label class="form-label">abilities</label>
+                        <span>agility</span>
+                        <input class="form-input ability-input" type="text" value="1" th:field="*{abilities.agility}">
+                        <span>presence</span>
+                        <input class="form-input ability-input" type="text" value="1" th:field="*{abilities.presence}">
+                        <span>strength</span>
+                        <input class="form-input ability-input" type="text" value="1" th:field="*{abilities.strength}">
+                        <span>toughness</span>
+                        <input class="form-input ability-input" type="text" value="1" th:field="*{abilities.toughness}">
+                    </div>
+
+                    <input class="btn" id="create-character-form-btn" type="submit" value="create">
                 </form>
             </div>
         </div>

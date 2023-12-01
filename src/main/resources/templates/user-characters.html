@@ -19,7 +19,7 @@
             <div class="characters-container">
                 <div class="character-box" th:each="character : ${characters}">
                     <h4><span th:text="${character.name}"></span></h4>
-                    <h4><span th:text="${character.characterClass.name}"></span></h4> 
+                    <h4><span th:text="${character.characterClass.className}"></span></h4> 
 
                     <h3>description</h3>
                     <p><span th:text="${character.description}"></span></p>
